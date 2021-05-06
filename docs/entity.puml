@@ -1,0 +1,35 @@
+@startuml
+
+entity Tenant  {
+  + id: string
+  --
+  tenant: string
+  username: string
+  password: string - hash to hide actual password
+  tenant_key: string
+  tenant_secret: string
+  core_key: string
+  core_secret: string
+  email: string
+  mobile: string
+  created_at: string
+  updated_at: string
+  deleted_at: string
+  
+}
+
+entity Session  {
+  + id: string
+  --
+  # tenant_id: string
+  token: string
+  valid_until: number
+  created_at: string
+  updated_at: string
+  deleted_at: string
+}
+
+
+Tenant ||-right-|| Session
+
+@enduml
